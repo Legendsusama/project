@@ -13,6 +13,28 @@ import orderRouter from "./routes/orderRoute.js";
 // App config
 const app = express();
 
+
+
+
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "http://localhost:5174",
+      "https:https://project-v1ku.vercel.app",
+      "https://project-4h8t.vercel.app"
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: [
+      "Content-Type",
+      "Authorization",
+      "token",
+      "adminToken",
+    ],
+    credentials: true
+  })
+);
+
 connectDB()
 connectCloudinary()
 
